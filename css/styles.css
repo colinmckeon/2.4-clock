@@ -1,4 +1,11 @@
 body {
   background-color: green; }
 
-/*# sourceMappingURL=styles.css.map */
+.container{
+  text-align: center;
+}
+
+
+#hours::after, #minutes::after{
+  content: ":";
+}
