@@ -1,11 +1,28 @@
 body {
-  background-color: green; }
+  background: url('https://static.pexels.com/photos/1127/cold-snow-landscape-nature.jpg');
+  background-size: cover;
+}
 
 .container{
   text-align: center;
+  height: 38px;
+  /*width: 100px;*/
+
+
+
 }
 
 
 #hours::after, #minutes::after{
   content: ":";
+}
+
+#progress{
+  border-color: black;
+  transition: width 0.5s;
+  /*height: 10px;*/
+}
+
+span{
+  color: white;
 }
