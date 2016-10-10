@@ -3,6 +3,8 @@
 (function(){
   "use strict";
 
+var isHovering = false;
+var background = document.querySelector('.container');
 
 function clock(){
 
@@ -11,7 +13,7 @@ function clock(){
 var hours = document.getElementById('hours');
 var minutes = document.getElementById('minutes');
 var seconds = document.getElementById('seconds');
-var background = document.querySelector('.container');
+
 var date = new Date();
 var formatedSeconds = date.getSeconds();
 var formatedMinutes = date.getMinutes();
@@ -39,11 +41,10 @@ hours.textContent = formatedHours;
 progressBar.style.width = (formatedSeconds / 60 * 100) + '%';
 
 
-
-background.addEventListener("mouseover", mouseOverFunction);
-
-function mouseOverFunction() {
-    background.innerHTML = colorCode;
+if(isHovering){
+  seconds.textContent = currentRed;
+  minutes.textContent = currentGreen;
+  hours.textContent = currentBlue;
 }
 
 
@@ -52,7 +53,24 @@ function mouseOverFunction() {
 } /*end of clock function*/
 
 clock();
-setInterval(clock, 1000)
+setInterval(clock, 100)
 
+
+
+
+
+background.addEventListener("mouseover", mouseOverFunction);
+
+function mouseOverFunction() {
+    // background.innerHTML = colorCode;
+    isHovering = true;
+}
+
+background.addEventListener("mouseout", mouseOutFunction);
+
+function mouseOutFunction() {
+    // background.innerHTML = colorCode;
+    isHovering = false;
+}
 
 }());
